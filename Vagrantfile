@@ -10,6 +10,10 @@ Vagrant.configure("2") do |config|
   nodo1.vm.box = "debian/bullseye64"
   nodo1.vm.hostname = "nodo1"
   nodo1.vm.synced_folder ".", "/vagrant", disabled: true
+  nodo1.vm.network :public_network,
+  :dev => "br0",
+  :mode => "bridge",
+  :type => "bridge"
   nodo1.vm.network :private_network,
   :libvirt__network_name => "red",
   :libvirt__dhcp_enabled => false,
