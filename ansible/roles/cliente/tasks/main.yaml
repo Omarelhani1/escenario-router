@@ -1,0 +1,9 @@
+- name: Cambiar configuración de red
+  template:
+    src: network/interfaces
+    dest: /etc/network/interfaces
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - reboot

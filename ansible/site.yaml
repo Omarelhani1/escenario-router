@@ -4,12 +4,12 @@
    - role: common
        
 
-- hosts: nodo2
+- hosts: nodo1
   become: true
   roles:
    - role: router
 
-#- hosts: cliente
-#  become: true
-#  roles:
-#   - role: cliente
+- hosts: nodo2
+  become: true
+  roles:
+   - role: cliente
