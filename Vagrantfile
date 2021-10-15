@@ -19,6 +19,9 @@ Vagrant.configure("2") do |config|
   :libvirt__dhcp_enabled => false,
   :ip => "10.0.0.1",
   :libvirt__forward_mode => "veryisolated"
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "/ansible/site.yaml"
+  end
   end
 
   config.vm.define :nodo2 do |nodo2|
@@ -30,6 +33,9 @@ Vagrant.configure("2") do |config|
   :libvirt__dhcp_enabled => false,
   :ip => "10.0.0.2",
   :libvirt__forward_mode => "veryisolated"
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "/ansible/site.yaml"
+  end
   end
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
